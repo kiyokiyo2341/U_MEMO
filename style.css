@@ -1,0 +1,394 @@
+.logo {
+    width: 180px;
+    height: auto;
+    margin-bottom: 20px;
+    display: block;
+    margin-left: left;
+    margin-right: right;
+
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: auto;
+}
+
+.memo-count {
+    text-align: right;
+    color: #777;
+    margin-bottom: 10px;
+    font-size: 0.9em;
+}
+#memoInput {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    margin-bottom: 10px;
+    height: 100px; /* 固定の高さ */
+    resize: none; /* 縦方向のリサイズを禁止 */
+}
+
+.complete-button {
+    background-color: #00aaff;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-left: 5px;
+}
+
+.complete-button:hover {
+    background-color: #0088cc;
+}
+.search-area {
+    margin-bottom: 10px;
+}
+
+#searchInput {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+.undo-button {
+    background-color: #6c757d;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.undo-button:hover {
+    background-color: #5a6268;
+}
+
+.undo-button:disabled {
+    background-color: #cccccc;
+    color: #666666;
+    cursor: not-allowed;
+}
+
+
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 20px;
+    background-color: #f4f4f4;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+li {
+    display: flex; /* Flexbox を有効にする */
+    justify-content: space-between; /* 左右に要素を配置 */
+    align-items: center; /* 縦方向中央揃え */
+    flex-direction: column; /* 必要に応じて追加 (縦並びにする場合) */
+    /* その他のスタイル */
+}
+
+.memo-content {
+    flex-grow: 1; /* テキストエリアが伸びるように */
+    order: -1; /* コントロール要素より前に表示 */
+    width: 100%; /* 必要に応じて */
+    margin-bottom: 5px; /* コントロール要素との間隔 */
+    border: double 2px #0905f1; /* 枠線を追加 */
+    border-radius: 4px; /* 角を丸くする */
+}
+
+.controls {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    /* order: 0; デフォルト値なので省略可能 */
+}
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.input-area {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+#memoInput {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    margin-bottom: 10px;
+    resize: vertical; /* 縦方向のリサイズを可能にする */
+}
+
+.button-group {
+    display: flex;
+    justify-content: flex-end;
+}
+
+#addButton {
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#addButton:hover {
+    background-color: #0056b3;
+}
+
+#memoList {
+    list-style: none;
+    padding: 0;
+}
+
+#memoList li {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+    background-color: #fff; /* デフォルトの背景色 */
+}
+
+#memoList li:last-child {
+    border-bottom: none;
+}
+
+.memo-text {
+    flex-grow: 1;
+    white-space: pre-wrap; /* 改行を保持 */
+    word-break: break-all; /* 長い単語を折り返す */
+}
+
+.memo-text.completed {
+    text-decoration: line-through;
+    color: #888;
+}
+
+.color-button {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 1px solid #ccc;
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+.delete-button {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-left: 10px;
+}
+
+.delete-button:hover {
+    background-color: #c82333;
+}
+#memoList li {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+    background-color: #fff; /* デフォルトの背景色 */
+}
+
+#memoList li:last-child {
+    border-bottom: none;
+}
+
+.memo-text {
+    flex-grow: 1;
+    white-space: pre-wrap; /* 改行を保持 */
+    word-break: break-all; /* 長い単語を折り返す */
+    cursor: pointer; /* 編集可能であることを示すカーソル */
+}
+
+.memo-text.completed {
+    text-decoration: line-through;
+    color: #888;
+}
+
+.memo-input-edit {
+    flex-grow: 1;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    white-space: pre-wrap;
+    word-break: break-all;
+}
+
+.color-button {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 1px solid #ccc;
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+.button-group-edit {
+    display: flex;
+    margin-left: 10px;
+}
+
+.save-button, .cancel-button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-left: 5px;
+}
+
+.cancel-button {
+    background-color: #6c757d;
+}
+
+.delete-button {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-left: 10px;
+}
+
+.delete-button:hover {
+    background-color: #c82333;
+}
+一覧になったメモの表示を、各メモが5行程度の高さを持つテキストエリアに変更したい、ということですね。
+
+HTML (index.html) は変更ありません。
+
+CSS (style.css) を以下のように修正します。.memo-text を非表示にし、代わりに .memo-textarea-display を追加してテキストエリアのスタイルを定義します。
+
+CSS
+
+/* style.css */
+/* ... 既存のCSS ... */
+#memoList li {
+    display: flex;
+    align-items: center; /* 縦方向中央揃えを維持 */
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+    background-color: #fff; /* デフォルトの背景色 */
+}
+
+#memoList li:last-child {
+    border-bottom: none;
+}
+
+.memo-text {
+    display: none; /* 通常のテキスト表示を非表示 */
+    flex-grow: 1;
+    white-space: pre-wrap; /* 改行を保持 */
+    word-break: break-all; /* 長い単語を折り返す */
+    cursor: pointer; /* 編集可能であることを示すカーソル */
+}
+
+.memo-text.completed {
+    text-decoration: line-through;
+    color: #888;
+}
+
+.memo-textarea-display {
+    flex-grow: 1;
+    height: calc(1.2em * 5 + 2px); /* 5行分の高さ (line-height * 行数 + border) */
+    padding: 8px;
+    border: 1px solid transparent; /* 枠線を透明にしてクリックしやすく */
+    border-radius: 4px;
+    font-size: 16px;
+    white-space: pre-wrap;
+    word-break: break-all;
+    overflow-y: auto; /* 必要に応じてスクロール */
+    resize: none; /* サイズ変更を禁止 */
+    cursor: pointer; /* 編集可能であることを示すカーソル */
+    background-color: transparent; /* 背景を透明に */
+    color: inherit; /* 文字色を親要素から継承 */
+}
+
+.memo-textarea-display.completed {
+    text-decoration: line-through;
+    color: #888;
+}
+
+.memo-input-edit {
+    flex-grow: 1;
+    padding: 8px;
+    border: 1px solid #9b4848;
+    border-radius: 4px;
+    font-size: 16px;
+    white-space: pre-wrap;
+    word-break: break-all;
+    height: auto; /* 編集時は自動調整 */
+    resize: vertical; /* 編集時は縦方向リサイズ可能 */
+}
+
+
+.color-button {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 1px solid #ccc;
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+.button-group-edit {
+    display: flex;
+    margin-left: 10px;
+}
+
+.save-button, .cancel-button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-left: 5px;
+}
+
+.cancel-button {
+    background-color: #6c757d;
+}
+
+.delete-button {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-left: 10px;
+}
+
+.delete-button:hover {
+    background-color: #c82333;
+}
+

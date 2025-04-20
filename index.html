@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>オペレーターメモ</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <img src="./imgs/logo.png" alt="Logo" class="logo">
+        <h1>オペレーターメモ</h1>
+        <div id="memoCount" class="memo-count">完了件数: 0件 / 全件数: 0件</div>
+        <button id="undoButton" class="undo-button" disabled>削除後戻る</button>
+        <div class="search-area">
+            <input type="text" id="searchInput" placeholder="追加保存された内容のみ検索可能">
+        </div>
+        <div class="input-area">　
+            <textarea id="memoInput" 
+            placeholder="ここにマニュアルのテンプレートをいれてください※リロード（更新）されるとデータが全て消えてしまうため注意！！ 
+※※業務終了後に未完了案件は必ず付箋アプリやメモ保存を忘れずに・・・
+追加後に削除ボタンは使用できますが削除で戻すことができるのは一つ前のみです(^^;;"></textarea>
+            <div class="button-group">
+                <button id="addButton">追加</button>
+            </div>
+        </div>
+        <ul id="memoList">
+            </ul>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
